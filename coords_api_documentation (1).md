@@ -1,14 +1,6 @@
 # 📄 Coords API Documentation
 
----
-
-## 📌 Sidebar Navigation
-- [CREATE Coords](#create-coords)
-- [GET All Coords](#get-all-coords)
-- [UPDATE Coords](#update-coords)
-- [GET Single Coords](#get-single-coords)
-
----
+**Base url /api/v1/stylewise **
 
 ## 🆕 CREATE Coords
 
