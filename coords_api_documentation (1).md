@@ -1,6 +1,9 @@
 # 📄 Coords API Documentation
 
-**Base url /api/v1/stylewise **
+**Base  URL **
+```js
+/api/v1/stylewise
+```
 
 ## 🆕 CREATE Coords
 
