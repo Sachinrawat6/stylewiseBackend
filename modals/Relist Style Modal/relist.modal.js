@@ -2,17 +2,20 @@ const mongoose = require("mongoose");
 
 const relistStyleSchema = new mongoose.Schema({
     oldSku: {
-        type: String,
+        type: Number,
         required: true,
-        trim: true
     },
     newSku: {
-        type: String,
+        type: Number,
         required: true,
-        trim: true
     },
     imageLink: {
         type: String,
+        trim: true,
+    },
+    createdBy: {
+        type: String,
+        required: true,
         trim: true,
     }
 }, { timestamps: true });
