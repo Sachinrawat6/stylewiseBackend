@@ -50,7 +50,7 @@ const costSchema = new mongoose.Schema({
 }, { _id: false });
 
 const styleSchema = new mongoose.Schema({
-    styleNumber: String,
+    styleNumber: Number,
     styleSketchImageLink: String,
     line: String,
     patternNumber: String,
@@ -102,8 +102,11 @@ const styleSchema = new mongoose.Schema({
     exactInventory: Number,
     inactive: Boolean,
     checked: Boolean,
-
-    photo: String
+    photo: String,
+    createdBy: {
+        type: String,
+        required: true,
+    },
 }, { timestamps: true });
 
 const QurviiStyle = mongoose.model("QurviiStyle", styleSchema);
