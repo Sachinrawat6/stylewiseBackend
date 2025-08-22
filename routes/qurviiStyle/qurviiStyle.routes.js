@@ -1,7 +1,6 @@
 const express = require("express");
 const { getStyleList, getSingleStyle, updateQurviiStyle, createQurviiStyles, getAllRegularStyles, uploadAndGetStyles } = require("../../controllers/qurviistyle/qurviiStyle.controller");
 const router = express.Router();
-
 router.route("/qurvii-styles").get(getStyleList);
 router.route("/style-details").get(getSingleStyle);
 router.route("/all-styles").get(getAllRegularStyles);
