@@ -29,11 +29,11 @@ Status: 200 OK
 ## 2. Get Single Relist Style
 
 - **Method:** `GET`
-- **URL:** `/relist-details/:id`
-- **Description:** Fetch a single relist style by its MongoDB ObjectId.
+- **URL:** `/relist-details`
+- **Description:** Fetch a single relist style by oldSku.
 - **Request:**
-  - **Params:**
-    - `id` (string) - Required, valid MongoDB ObjectId.
+  - **Query:**
+    - `id` (string) - Required, valid oldSku.
 - **Response:**
 ```json
 Status: 200 OK

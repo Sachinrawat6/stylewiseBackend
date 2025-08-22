@@ -18,6 +18,7 @@ const uploadStyles = async (req, res, next) => {
             coordStyleNumber: style.coordStyleNumber || null,
             styleNumbers: Array.isArray(style.styleNumbers) ? style.styleNumbers.filter(Boolean) : [],
             coordSetName: style.coordSetName || "",
+            createdBy: style.createdBy || "Admin",
             colors: Array.isArray(style.colors) ? style.colors.filter(Boolean) : [],
         }));
 

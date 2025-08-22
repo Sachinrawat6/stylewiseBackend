@@ -18,27 +18,36 @@ const getRelistedList = async (_, res, next) => {
 }
 
 // ******************* getting single relisted style ****************************
-
 const getRelistStyle = async (req, res, next) => {
     try {
-        const { id } = req.params;
-        if (!id) {
-            return next(new ApiError(400, "Style id is required."));
-        }
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            return next(new ApiError(400, "Invalid style id provided."));
+        const { oldSku, status, createdBy, newSku } = req.query;
+
+        // At least one filter should be provided
+        if (!oldSku && !newSku && !status && !createdBy) {
+            return next(new ApiError(400, "At least one filter (oldSku, newSku, status, createdBy) is required."));
         }
 
-        const relistStyle = await RelistStyle.findById(id);
+        // Build dynamic filter object
+        const filter = {};
+        if (oldSku) filter.oldSku = oldSku;
+        if (newSku) filter.newSku = newSku;
+        if (status) filter.status = status;
+        if (createdBy) filter.createdBy = createdBy;
+
+        const relistStyle = await RelistStyle.findOne(filter);
+
         if (!relistStyle) {
-            return next(new ApiError(404, "Relist style not found for this id"));
+            return next(new ApiError(404, "Relist style not found with given filters"));
         }
 
-        res.status(200).json(new ApiResponse(200, `Style fetched for ${relistStyle?.oldSku}`, relistStyle));
+        res.status(200).json(
+            new ApiResponse(200, `Style fetched for ${relistStyle.oldSku}`, relistStyle)
+        );
     } catch (error) {
         next(error);
     }
-}
+};
+
 
 // ******************** updating relist style ***********************************
 

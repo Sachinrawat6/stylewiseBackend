@@ -3,7 +3,7 @@ const { getRelistedList, getRelistStyle, updateRelistStyle, createRelistStyle } 
 const router = express.Router();
 
 router.route("/relisted").get(getRelistedList);
-router.route("/relist-details/:id").get(getRelistStyle);
+router.route("/relist-details").get(getRelistStyle);
 router.route("/update/:id").post(updateRelistStyle);
 router.route("/create").post(createRelistStyle);
 

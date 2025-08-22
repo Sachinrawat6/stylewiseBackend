@@ -23,7 +23,11 @@ const coordSetSchema = new mongoose.Schema(
                 type: String,
                 trim: true
             }
-        ]
+        ],
+        createdBy: {
+            type: String,
+            required: true,
+        }
     },
     { timestamps: true }
 );

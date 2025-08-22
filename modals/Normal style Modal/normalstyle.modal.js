@@ -50,7 +50,7 @@ const costSchema = new mongoose.Schema({
 }, { _id: false });
 
 const styleSchema = new mongoose.Schema({
-    styleNumber: Number,
+    styleNumber: Number,  // Changed from Number to String as it might contain alphanumeric values
     styleSketchImageLink: String,
     line: String,
     patternNumber: String,
@@ -63,8 +63,8 @@ const styleSchema = new mongoose.Schema({
     styleName: String,
     styleDescription: String,
 
-    fabrics: [fabricSchema],
-    accessories: [accessorySchema],
+    fabrics: [fabricSchema],  // For Fabric 1, 2, 3
+    accessories: [accessorySchema],  // For Accessory 1, 2, 3
 
     dyeingCost: Number,
     laborHours: Number,
@@ -107,6 +107,10 @@ const styleSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    logId: {
+        type: Number,
+        required: true,
+    }
 }, { timestamps: true });
 
 const QurviiStyle = mongoose.model("QurviiStyle", styleSchema);
